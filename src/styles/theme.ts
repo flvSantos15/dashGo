@@ -15,6 +15,10 @@ export const theme = extendTheme({
       "50":"#eeeef2",
     }
   },
+  fonts: {
+    heading: 'Roboto',
+    body: 'Roboto', //A fonte não esta funcionando
+  },
   styles: {
     global: {
       body: {
