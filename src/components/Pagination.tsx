@@ -15,7 +15,7 @@ export default function Pagination(){
       <Stack direction='row' spacing='2'>
         <Button 
           size='sm' 
-          fontSize='xs' 
+          fontSize='xs'
           width='4' 
           colorScheme='pink' 
           disabled 
