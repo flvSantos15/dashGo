@@ -1,44 +1,48 @@
 import {
-   Box,
-   Flex,
-   Heading,
-   Button,
-   Icon,
-   Table,
-   Thead,
-   Tr,
-   Th,
-   Checkbox,
-   Tbody,
-   Td,
-   Text,
-   useBreakpointValue,
-  } from "@chakra-ui/react";
-import { RiAddLine, RiPencilLine } from "react-icons/ri";
+  Box,
+  Flex,
+  Heading,
+  Button,
+  Icon,
+  Table,
+  Thead,
+  Tr,
+  Th,
+  Checkbox,
+  Tbody,
+  Td,
+  Text,
+  useBreakpointValue,
+} from "@chakra-ui/react";
+import Link from 'next/link'
+import { RiAddLine } from "react-icons/ri";
 
 import Header from "../../components/Header";
 import Pagination from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
 
-export default function UsersList(){
+export default function UsersList() {
   const isWideVersion = useBreakpointValue({
     base: false,
     lg: true,
   })
-  return(
+  return (
     <Box>
-      <Header/>
+      <Header />
 
       <Flex w='100%' my='6' maxWidth={1480} mx='auto' px={['4', '4', '6']}>
-        <Sidebar/>
+        <Sidebar />
 
         <Box flex='1' borderRadius={8} bg='gray.800' p='8'>
           <Flex mb='8' justify='space-between' align='center'>
             <Heading size='lg' fontWeight='normal'>Usuários</Heading>
 
-            <Button as='a' size='sm' fontSize='sm' colorScheme='pink' leftIcon={<Icon as={RiAddLine} fontSize='20'/>}>
-              Criar novo
-            </Button>
+            <Link href='/users/create' passHref>
+              <Button as='a' size='sm' fontSize='sm' colorScheme='pink' leftIcon={<Icon as={RiAddLine} fontSize='20' />}>
+                Criar novo
+              </Button>
+            </Link>
+
           </Flex>
 
           <Table colorScheme='whiteAlpha'>
@@ -49,10 +53,10 @@ export default function UsersList(){
                 </Th>
 
                 <Th>Usuário</Th>
-                
-                { isWideVersion && <Th>Data de cadastro</Th>}
-                
-                
+
+                {isWideVersion && <Th>Data de cadastro</Th>}
+
+
               </Tr>
             </Thead>
             <Tbody>
@@ -66,8 +70,8 @@ export default function UsersList(){
                     <Text fontWeight='sm' color='gray.300'>flvSantos300@gmail.com</Text>
                   </Box>
                 </Td>
-                { isWideVersion && <Td>04 de Abril,  2021</Td>}
-                
+                {isWideVersion && <Td>04 de Abril,  2021</Td>}
+
               </Tr>
             </Tbody>
             <Tbody>
@@ -81,8 +85,8 @@ export default function UsersList(){
                     <Text fontWeight='sm' color='gray.300'>flvSantos300@gmail.com</Text>
                   </Box>
                 </Td>
-                { isWideVersion && <Td>04 de Abril,  2021</Td>}
-                
+                {isWideVersion && <Td>04 de Abril,  2021</Td>}
+
               </Tr>
             </Tbody>
             <Tbody>
@@ -96,13 +100,13 @@ export default function UsersList(){
                     <Text fontWeight='sm' color='gray.300'>flvSantos300@gmail.com</Text>
                   </Box>
                 </Td>
-                { isWideVersion && <Td>04 de Abril,  2021</Td>}
-                
+                {isWideVersion && <Td>04 de Abril,  2021</Td>}
+
               </Tr>
             </Tbody>
           </Table>
 
-          <Pagination/>
+          <Pagination />
 
         </Box>
       </Flex>
