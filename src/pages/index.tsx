@@ -59,8 +59,6 @@ export default function SignIn({email, password}: SignInFormData) {
             error={errors.password}
             {...register('password')}
           />
-
-          {/* parei no 10:40 com um erro */}
           
         </Stack>
 
