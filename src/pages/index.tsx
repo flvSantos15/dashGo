@@ -75,3 +75,5 @@ export default function SignIn({email, password}: SignInFormData) {
     </Flex>
   )
 }
+//Adionando react query
+//Configurando miragejs
