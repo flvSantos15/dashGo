@@ -24,10 +24,12 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@types/faker": "^5.5.9",
     "@types/node": "^16.11.9",
     "@types/react": "^17.0.36",
     "eslint": "7",
     "eslint-config-next": "12.0.4",
+    "faker": "^5.5.3",
     "miragejs": "^0.1.43",
     "typescript": "^4.5.2"
   }
