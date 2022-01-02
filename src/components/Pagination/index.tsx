@@ -80,7 +80,7 @@ export default function Pagination({
           return <PaginationItem onPageChange={onPageChange} key={page} number={page}/>
         })}
 
-        {currentPage > (1 + siblingsCount) && (
+        {(currentPage + siblingsCount) < lastPage && (
           <>
             {(currentPage + 1 + siblingsCount) < lastPage && (
               <Text color='gray.300' w='8' textAlign='center'>...</Text>
