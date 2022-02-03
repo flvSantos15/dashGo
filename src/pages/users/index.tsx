@@ -18,27 +18,28 @@ import {
   Spinner,
   Link,
 } from "@chakra-ui/react";
+import { GetServerSideProps } from 'next';
+
 import { RiAddLine } from "react-icons/ri";
+
+import { getUsers, useUsers } from "../../services/hooks/useUsers";
+import { queryClient } from '../../services/queryClient';
+import { api } from '../../services/api';
 
 import Header from "../../components/Header";
 import Pagination from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
-import { getUsers, useUsers } from "../../services/hooks/useUsers";
-import { queryClient } from '../../services/queryClient';
-import { api } from '../../services/api';
-import { GetServerSideProps } from 'next';
 
-export default function UsersList({users}) {
+export default function UsersList() {
   const [page, setPage] = useState(1)
-  const { data, isLoading, isFetching, error } = useUsers(page, {
-    initialData: users,
-  })
+  const { data, isLoading, isFetching, error } = useUsers(page)
 
   const isWideVersion = useBreakpointValue({
     base: false,
     lg: true,
   })
 
+  //uso da api
   async function handlePrefecthUser(userId: string){
     await queryClient.prefetchQuery(['user', userId], async () => {
       const response = await api.get(`users/${userId}`)
@@ -127,16 +128,16 @@ export default function UsersList({users}) {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  //para usar o reactQuery dentro do server side rendering
-  //preciso fazer isso
-  //ja que ele só funciona dentro de components
+// export const getServerSideProps: GetServerSideProps = async () => {
+//   //para usar o reactQuery dentro do server side rendering
+//   //preciso fazer isso
+//   //ja que ele só funciona dentro de components
 
-  const { users, totalCount} = await getUsers(1)
+//   const { users, totalCount} = await getUsers(1)
   
-  return{
-    props: {
-      users,
-    }
-  }
-}
+//   return{
+//     props: {
+//       users,
+//     }
+//   }
+// }
